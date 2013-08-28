@@ -4,12 +4,13 @@ get '/' do
 end
 
 get '/categories/create_post/:category' do
-  params[:category]
+  @category = params[:category]
   erb :create_post
 end
 
-post 'categories/:category' do
-  erb :create_post
+post '/categories/:category' do
+  p params
+  redirect "/categories/#{params[:category]}"
 end
 
 get '/categories/:category' do
