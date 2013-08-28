@@ -3,5 +3,13 @@
 </div>
 
 <div class="container">
-  <h1>This is where the posts will go!</h1>
+  <% Post.where(category_id: @category.id).each do |post| %>
+  <li>
+    <a href=post/<%= post.id %>><%= post.title %></a>
+  </li>
+    <% end %>
+    <br>
+    -----------------------------------------------------
+    <br>
+    <a href="/categories/create_post/<%= params[:category] %>">Create a post!</a>
 </div>
